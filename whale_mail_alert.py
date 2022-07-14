@@ -16,6 +16,8 @@ recipients = ["whale.mail.alert@gmail.com"]
 # Interval between excecutions in seconds.
 interval = 120
 
+# Transaction value above witch a mail is sent. 
+threshold_value = 500000 
 # Call Whale Alert API to list all large tranactions (>500.000$) at a set interval time. 
 # Transaction log starts from x (interval) secs ago and ends the moment we call the API (now)
 # in order to achieve live tranaction monitoring. 
@@ -38,12 +40,13 @@ def api_call():
     # Extract wantedd info from .json response 
     if int(r_dict["count"]) > 0:
         for transaction in r_dict["transactions"]:
-            blockchain = transaction["blockchain"]
             usd_value = int(transaction["amount_usd"])
-            hash = transaction["hash"]
-            print(blockchain + ": " + str(usd_value) + " hash " + hash )
-            # Mail-Alert Recipients
-            send_mail_alert(blockchain , usd_value , hash)
+            if usd_value > threshold_value: 
+                blockchain = transaction["blockchain"]
+                hash = transaction["hash"]
+                print(blockchain + ": " + str(usd_value) + " hash " + hash )
+                # Mail-Alert Recipients
+                send_mail_alert(blockchain , usd_value , hash)
 
 
 # Implement e-mail sending using smtp lib
