@@ -16,11 +16,13 @@ List of supported blockchains.
 - Steem. 
 - Icon.
 
-## Note.
-Because transaction block confirmation varies between blockchains, some tranasctions on specific blockchains may come bundled at specific interval windows.
+## Notes.
+1. Because transaction block confirmation varies between blockchains, some tranasctions on specific blockchains may come bundled at specific interval windows.
 For example, **Bitcoin** blocks, containing all the most recent transactions, are added to the blockchain **every 10 minutes**. 
 As a result , it is likely that the script will send multiple alerts about large tranactions on Bitcoin blockcahin every 10 minutes.
-On the other hand , **Ethereum** tranactions take **15 seconds to 5 minutes** whereas **Tron** only takes about **3 seconds**.  
+On the other hand , **Ethereum** tranactions take **15 seconds to 5 minutes** whereas **Tron** only takes about **3 seconds**.
+
+2. The 500.000$ minimum threshold transaction value comes from the free API limitations and can be adjusted by changing the `threshold_value` variable  
 
 # How to use.
 To alert yourself ,or anyone you wish to, about large transactions , you need to do the following.
