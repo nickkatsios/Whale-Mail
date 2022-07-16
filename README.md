@@ -22,17 +22,18 @@ For example, **Bitcoin** blocks, containing all the most recent transactions, ar
 As a result , it is likely that the script will send multiple alerts about large tranactions on Bitcoin blockcahin every 10 minutes.
 On the other hand , **Ethereum** tranactions take **15 seconds to 5 minutes** whereas **Tron** only takes about **3 seconds**.
 
-2. The 500.000$ minimum threshold transaction value comes from the free API limitations and can be adjusted by changing the `threshold_value` variable  
+2. The 500.000$ minimum threshold transaction value comes from the free API limitations and can be adjusted by changing the `threshold_value` variable. Due to calls/min limitation `interval` variable cannot be < 6secs ( i.e. 10 calls per min)  
 
 # How to use.
 To alert yourself ,or anyone you wish to, about large transactions , you need to do the following.
 
+(All variables that need changing apear at the top of the script)
 1. Get a whale alert API key by signing up [here](https://whale-alert.io/signup).
 2. Get a gmail [app password](https://support.google.com/accounts/answer/185833?hl=en) for your account [here](https://myaccount.google.com/apppasswords).
 3. Replace `key` variable with your API key. 
 4. Replace `app_password` variable with your app password.
-5. Add your credentials to smtp.login(YOUR_GMAIL_HERE , YOUR_APP_PASSWORD_HERE).
-6. Add any recipients' e-mail address you want to send alerts to in the `recipients` list.
+5. Replace `gmail_address` variable with your gmail address.
+6. Add any recipients' e-mail addresses you want to send alerts to in the `recipients` list.
 7. Choose an interval time in seconds between the API calls. (Recommended- Default: 2min = 120 secs) by changing the `interval` variable.
 
 ## Warning!
